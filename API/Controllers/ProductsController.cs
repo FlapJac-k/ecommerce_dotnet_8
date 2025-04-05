@@ -10,13 +10,13 @@ namespace API.Controllers;
 public class ProductsController(IGenericRepository<Product> repo) : ControllerBase
 {
     [HttpGet]
-    public async Task<ActionResult<IReadOnlyList<Product>>> GetProducts(string? brand,
-        string? type, string? sort)
+    public async Task<ActionResult<IReadOnlyList<Product>>> GetProducts(
+        [FromQuery] ProductSpecParams specParams)
     {
-        return Ok(await repo.ListAsync(new ProductSpecification(brand, type, sort)));
+        return Ok(await repo.ListAsync(new ProductSpecification(specParams)));
     }
 
-    [HttpGet("{id:int}")] // api/products/2
+    [HttpGet("{id:int}")]
     public async Task<ActionResult<Product>> GetProduct(int id)
     {
         var product = await repo.GetByIdAsync(id);
