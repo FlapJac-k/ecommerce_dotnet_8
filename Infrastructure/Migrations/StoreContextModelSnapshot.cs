@@ -498,9 +498,8 @@ namespace Infrastructure.Migrations
                                 .IsRequired()
                                 .HasColumnType("nvarchar(max)");
 
-                            b1.Property<string>("ProductId")
-                                .IsRequired()
-                                .HasColumnType("nvarchar(max)");
+                            b1.Property<int>("ProductId")
+                                .HasColumnType("int");
 
                             b1.Property<string>("ProductName")
                                 .IsRequired()
