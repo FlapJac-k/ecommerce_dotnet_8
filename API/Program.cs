@@ -1,3 +1,4 @@
+
 using API.Middleware;
 using Core.Entities;
 using Core.Interfaces;
@@ -35,6 +36,7 @@ builder.Services.AddIdentityApiEndpoints<AppUser>()
     .AddEntityFrameworkStores<StoreContext>();
 
 builder.Services.AddScoped<IPaymentService, PaymentService>();
+builder.Services.AddSingleton<IResponseCacheService, ResponseCacheService>();
 
 var app = builder.Build();
 
