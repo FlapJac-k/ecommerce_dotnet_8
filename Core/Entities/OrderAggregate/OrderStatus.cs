@@ -4,7 +4,8 @@
     {
         Pending,
         PaymentReceived,
-        PaymentFailed
+        PaymentFailed,
+        Refunded
     }
 }
 
